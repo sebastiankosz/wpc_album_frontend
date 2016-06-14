@@ -3,15 +3,49 @@
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
   <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style> 
+
+    .body {
+	 background-color:#f2f2f2;
+
+	} 
+	.txt {
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	}
+    .main {
+	
+	margin-bottom: 0;
+      border-radius: 0;
+	  background-color:#E0E0E0 ;
+      padding: 25px;
+    }
+    #btn-1 {    
+    padding: 5px;
+	}
+   </style>  
   </head>
- <body>
-  <h1>Here you can create your own album</h1>
-  <div class="dropzone" id="dropzoneForm">
+ <body class="body">
+  <h1 class="text-centerlead txt">Welcome! Here you can create your own album</h1>
+  <div class="dropzone"  id="dropzoneForm">
   </div>
+  <div class="row main">
   <form class="requestAlbumForm" action="{{url_for('request_album_creation')}}" method="POST">
-     <input name="email" type="text"/>
-     <button type="submit">Create Album</button>
-  </form>
+     <div class="col-md-2">
+	 <label for="email" class="txt">Email address:</label>
+	 <input name="email" id="input_emial" class="form-control" type="text"/ placeholder="Enter e-mail address">
+	  <div id="btn-1">
+     <button class="btn btn-primary" class="form-control" type="submit">Create Album</button>
+	 </div>
+	 </div>
+	
+	 <div class=col-md-10">
+	 
+	</div>
+ </form>
+  </div>
   <script type="text/javascript">
    var createInput = function(count, path) {
        	 var input = '<input type="hidden" class="photo" name="photos___number__" value="__value__"/>"'

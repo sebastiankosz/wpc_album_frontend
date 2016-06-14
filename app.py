@@ -6,13 +6,10 @@ app = Flask(__name__)
 
 bucket_address = 'https://s3.eu-central-1.amazonaws.com/167118-baster'
 
-@app.route("/hello")
-def hello():
-    return "Hello World!"
 
 @app.route("/")
 def index():
-  return render_template('upload_form.html', uploadButtonName="send")
+  return render_template('index.html', uploadButtonName="send")
 
 @app.route("/upload", methods=['POST'])
 def upload():
@@ -41,7 +38,7 @@ def request_album_creation():
     'photos': urls
   }
   request_album(album)
-  return jsonify()
+  return render_template('request_album.html')
 
 def upload_s3(source_file, destination_filename):
   bucket_name = '167118-baster'
